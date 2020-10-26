@@ -4,11 +4,9 @@ import gql from 'graphql-tag';
 import * as S from './homePage.styled'
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
+import {Link} from 'react-router-dom'
 
-const HomePage = () => {
-  const [search, setSearch] = useState('');
-
-  const GET_POSTS = gql`
+const GET_POSTS = gql`
 query {
   posts(stage: PUBLISHED, locales: en) {
     title,
@@ -24,6 +22,9 @@ query {
   }
 }
 `;
+
+const HomePage = () => {
+  const [search, setSearch] = useState('');
 
 function createMarkup(posts) {
   return { __html: posts };
@@ -55,9 +56,10 @@ function createMarkup(posts) {
     </Form>
     {data.posts.map(post => (
      <S.Card key={post.slug}>
-        <h2>{post.title}</h2>
-        <p>{post.excerpt}</p>
-        <p dangerouslySetInnerHTML={createMarkup(post.content.html)} />
+       <Link to={`/post/${post.slug}`}> 
+       <h2>{post.title}</h2>
+       </Link>
+        <p dangerouslySetInnerHTML={createMarkup(post.excerpt)} />
        </S.Card>
     ))}
       </S.Container>
