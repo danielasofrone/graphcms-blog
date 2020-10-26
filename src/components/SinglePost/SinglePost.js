@@ -5,10 +5,6 @@ import * as S from '../homePage.styled'
 import Navbar from 'react-bootstrap/Navbar';
 import { useParams } from "react-router-dom";
 
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const postSlug = urlParams.get('slug')
-
 const GET_POST = gql`
 query ($slug: String) {
   post(stage: PUBLISHED, locales: en, where: {slug: $slug}) {

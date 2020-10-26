@@ -5,6 +5,7 @@ import ApolloClient from 'apollo-boost';
 import 'bootstrap/dist/css/bootstrap.css';
 import { ApolloProvider } from '@apollo/react-hooks';
 import SinglePost from './components/SinglePost/SinglePost'
+import Search from './components/SinglePost/SinglePost'
 import {
     BrowserRouter as Router,
     Switch,
@@ -27,10 +28,13 @@ const client = new ApolloClient({
         <ApolloProvider client={client}>
           <Router>
             <Switch>
-              <Route path="/post/:slug">
+              <Route exact path="/post/:slug">
                 <SinglePost />
               </Route>
-              <Route path="/">
+                <Route exact path="/search/:query">
+                <Search />
+              </Route>
+               <Route exact path="/">
                 <Homepage />
               </Route>
             </Switch>
