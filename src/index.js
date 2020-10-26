@@ -5,7 +5,7 @@ import ApolloClient from 'apollo-boost';
 import 'bootstrap/dist/css/bootstrap.css';
 import { ApolloProvider } from '@apollo/react-hooks';
 import SinglePost from './components/SinglePost/SinglePost'
-import Search from './components/SinglePost/SinglePost'
+import Search from './components/Search/Search'
 import {
     BrowserRouter as Router,
     Switch,

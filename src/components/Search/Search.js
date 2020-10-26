@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { useQuery} from '@apollo/react-hooks';
 import gql from 'graphql-tag';
-import * as S from './homePage.styled'
+import * as S from '../homePage.styled'
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import {Link, useParams} from 'react-router-dom'
